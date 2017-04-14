@@ -7,12 +7,19 @@ window.onload = function() {
   display.value = val;
 };
 
-var operators = ["×", "÷", "+", "−"];
+var operators = ["+", "-", "*", "/"];
 
 function press(key) {
   // Handle clear button being pressed
-  if(key == 'C') {
+  if(key === 'C') {
     val = '';
+  }
+  // Handle operator buttons being pressed
+  // TODO: Add special exceptions for minus sign turning numbers negative
+  //       and for operators replacing other operators
+  else if (operators.indexOf(key) > -1) {
+    console.log('Operator key pressed!');
+    val += key;
   }
   // Handle numbers being pressed
   else {
