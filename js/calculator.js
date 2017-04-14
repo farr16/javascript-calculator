@@ -23,8 +23,12 @@ function press(key) {
   // Handle decimal button being pressed
   // TODO: Add handling for making sure numbers only have one decimal point
   else if (key === '.') {
-    console.log("Decimal button pressed!");
     val += key;
+  }
+  // Handle equals button being pressed
+  else if (key === '=') {
+    console.log('Equals button pressed!');
+    val = '' + eval(val);
   }
   // Handle numbers being pressed
   else {
