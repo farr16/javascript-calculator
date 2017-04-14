@@ -18,7 +18,12 @@ function press(key) {
   // TODO: Add special exceptions for minus sign turning numbers negative
   //       and for operators replacing other operators
   else if (operators.indexOf(key) > -1) {
-    console.log('Operator key pressed!');
+    val += key;
+  }
+  // Handle decimal button being pressed
+  // TODO: Add handling for making sure numbers only have one decimal point
+  else if (key === '.') {
+    console.log("Decimal button pressed!");
     val += key;
   }
   // Handle numbers being pressed
