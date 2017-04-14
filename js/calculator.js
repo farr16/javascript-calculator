@@ -27,13 +27,14 @@ function press(key) {
   }
   // Handle equals button being pressed
   else if (key === '=') {
-    console.log('Equals button pressed!');
     val = '' + eval(val);
   }
   // Handle numbers being pressed
   else {
     val += key;
   }
+  // TODO: Replace '/' '-' and '*' characters with division sign, minus sign
+  //       and multiplication sign respectively for the screen display
   
   display.value = val;
 }
