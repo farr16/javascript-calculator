@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>JavaScript Calculator</title>
+	<link rel='stylesheet' type='text/css' href='css/calculator.css'>
   </head>
   <body>
     <!-- Calculator body div -->
-    <div>
+    <div class='calculator'>
       <!-- Calculator screen -->
-      <input id='display' readonly>
+      <input id='display' readonly value='123+456&minus;789&times;0'>
       <!-- Button row 1 -->
       <div>
         <button>7</button>
@@ -20,7 +21,7 @@
         <button>4</button>
         <button>5</button>
         <button>6</button>
-        <button>-</button>
+        <button>&minus;</button>
       </div>
       <!-- Button row 3 -->
       <div>
@@ -33,11 +34,11 @@
       <div>
         <button>.</button>
         <button>0</button>
-        <button>C</button>
+        <button class='clear'>C</button>
         <button>&divide;</button>
       </div>
       <!-- Equals button (takes up same width as a row of buttons) -->
-      <button>=</button>
+      <button class='equals'>=</button>
     </div>
   </body>
 </html>
