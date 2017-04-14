@@ -20,11 +20,22 @@ function press(key) {
     val = '';
   }
   // Handle operator buttons being pressed
-  // TODO: Add special exceptions for minus sign turning numbers negative
-  //       and for operators replacing other operators
   else if (operators.indexOf(key) > -1) {
-    noDecimalInCurrNumber = true;
-    val += key;
+    // If the end character is another operator or a decimal, replace it with
+    // the current operator
+    if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
+      if (val.length > 1 || key === '+' || key === '-') {
+        noDecimalInCurrNumber = true;
+        val = val.replace(/.$/, key);
+      }
+    }
+    // Only place an operator at the start of the expression if it's a minus sign
+    else {
+      if (val.length !== 0 || key === '-') {
+        noDecimalInCurrNumber = true;
+        val += key;
+      }
+    }
   }
   // Handle decimal button being pressed
   else if (key === '.') {
@@ -32,13 +43,13 @@ function press(key) {
       if (operators.indexOf(lastChar) < 0) {
         noDecimalInCurrNumber = false;
         val += key;
-	  }
-	}
+      }
+    }
   }
   // Handle equals button being pressed
   else if (key === '=') {
     val = '' + eval(val);
-	noDecimalInCurrNumber = (val.indexOf('.') < 0);
+    noDecimalInCurrNumber = (val.indexOf('.') < 0);
   }
   // Handle numbers being pressed
   else {
