@@ -1,15 +1,23 @@
 var display;
+var val;
 
 window.onload = function() {
   display = document.getElementById('display');
-  display.value = '0';
+  val = '';
+  display.value = val;
 };
 
-function press(val) {
-  if(val == 'C') {
-    display.value = '0';
+var operators = ["×", "÷", "+", "−"];
+
+function press(key) {
+  // Handle clear button being pressed
+  if(key == 'C') {
+    val = '';
   }
+  // Handle numbers being pressed
   else {
-    display.value += val;
+    val += key;
   }
+  
+  display.value = val;
 }
